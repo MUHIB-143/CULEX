@@ -3,10 +3,10 @@ name: Cythonize Python Script
 on:
   push:
     branches:
-      - main
+      - README.md
   pull_request:
     branches:
-      - main
+      - README.md
 
 jobs:
   build:
