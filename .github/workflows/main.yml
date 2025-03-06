@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: linux-aarch64
 
     steps:
       - name: Checkout code
@@ -30,6 +30,9 @@ jobs:
         run: |
           python setup.py build_ext --inplace
 
+      - name: Move
+        run: mkdir cpy && mv cl.cpython-312.so cpy/
+
       - name: Verify build
         run: |
-          python -c "import your_script; print('Cythonization successful')"
+          python -c "import cl; print('Cythonization successful')"
